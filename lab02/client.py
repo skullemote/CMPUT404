@@ -3,6 +3,7 @@ import socket
 BYTES_TO_READ = 4096
 
 def get(host, port):
+    #creates a get request and converts into bytes using utf encoding
     request = b"GET / HTTP/1.1\nHost: " + host.encode('utf-8') + b"\n\n"
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #initialize a socket
     s.connect((host,port)) # connect to google

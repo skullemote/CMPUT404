@@ -20,6 +20,7 @@ def start_server():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind((HOST, PORT)) #bind to ip and port
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) #ignore this for now => set reuseaddr to 1
+        #SOL_SOCKET opens up options for socket configurations
         s.listen() #listen for incoming connections
         conn, addr = s.accept() #conn = socket referring to the client, addr => address of the client [IP, Port]
         handle_connection(conn, addr) # send it a response
